@@ -14,6 +14,7 @@ model {
         ndk {
             // name used to load to a Java class
             moduleName = "hello-jni"
+            ldLibs.addAll(["android", "log"])
 
             productFlavors {
                 // specific architectures

@@ -13,7 +13,7 @@ public class MainActivity extends Activity {
         // create a TextView and set it as content view
         // text is acquired from native library
         TextView tv = new TextView(this);
-        tv.setText(nativeStringFromJNI());
+        tv.setText(String.valueOf(nativeAdd(1, 1)));
         setContentView(tv);
     }
 
@@ -24,7 +24,14 @@ public class MainActivity extends Activity {
     public native String nativeStringFromJNI();
 
     /**
-     * Loads generated native library to {@link MainActivity} with its functions.
+     * @param a First element
+     * @param b Second Element
+     * @return Sum of two elements
+     */
+    public native int nativeAdd(int a, int b);
+
+    /**
+     * Loads generated native libraries to {@link MainActivity} with its functions.
      */
     static {
         System.loadLibrary("hello-jni");
